@@ -1,0 +1,71 @@
+.presentation {
+    padding: 100px 0;
+    background-color: $third-color;
+    position: relative;
+    &__cloud {
+        &-up {
+            position: absolute;
+            top: -30px;
+            left: 0;
+            right: 0;
+            height: 30px;
+            transform: rotate(180deg);
+            svg {
+                width: 100%;
+                height: 100%;
+            }
+        }
+        &-down {
+            position: absolute;
+            bottom: -30px;
+            left: 0;
+            right: 0;
+            height: 30px;
+            svg {
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+    &__wrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+    &__item {
+        max-width: 350px;
+        cursor: pointer;
+        padding: 15px;
+        transition: 0.4s all;
+        background-color: #f2f2f2;
+        &-img {
+            width: 70px;
+            height: 70px;
+            padding: 0 0 20px;
+            margin: 0 auto 15px;
+            position: relative;
+            z-index: 2;
+            @include divider;
+            &::after {
+                width: 50px;
+                background-color: $second-color;
+            }
+            svg {
+                height: 100%;
+                width: 100%;
+            }
+        }
+        &-name {
+            text-align: center;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        &-text {
+            text-align: center;
+        }
+        &:hover {
+            z-index: 3;
+            transform: scale(1.2);
+            box-shadow: 0 1px 3px 3px $second-color;
+        }
+    }
+}

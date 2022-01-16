@@ -1,0 +1,42 @@
+.footer {
+    padding: 60px 0;
+    background-color: $second-color;
+    position: relative;
+    &__wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__item {
+        width: 250px;
+        display: flex;
+        flex-flow: column;
+        margin: 0 40px 0 0;
+        a {
+            color: $main-color;
+            width: max-content;
+            margin-bottom: 10px;
+            transition: 0.4s all;
+            position: relative;
+            &::before {
+                content: "";
+                position: absolute;
+                width: 0;
+                right: auto;
+                left: auto;
+                height: 1px;
+                background-color: $main-color;
+                bottom: -2px;
+                transition: all .23s;
+            }
+            &:hover {
+                &::before {
+                    width: 100%;
+                }
+            }
+        }
+        &:last-child {
+            margin: 0;
+        }
+    }
+}

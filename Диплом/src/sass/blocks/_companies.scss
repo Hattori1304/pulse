@@ -1,0 +1,146 @@
+.companies {
+    min-height: 100vh;
+    background-color: $second-color;
+    padding: 120px 0 20px;
+    &__title {
+        padding-bottom: 15px;
+        margin: 0 auto 25px;
+        @include divider;
+    }
+    &__wrapper {
+        display: flex;
+        flex-flow: wrap;
+        justify-content: space-between;
+        position: absolute;
+        clip: rect(0 0 0 0);
+        transform: scale(0);
+        transition: .7s all;
+        visibility: hidden;
+        opacity: 0;
+        &.active {
+            opacity: 1;
+            visibility: visible;
+            position: relative;
+            transform: scale(1);
+            clip: auto;
+            overflow: visible;
+        }
+    }
+    &__tabs {
+        display: flex;
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+        overflow-x: scroll;
+        .tab {
+            padding: 15px;
+            margin: 0 40px;
+            min-width: 135px;
+            text-align: center;
+            border: 1px solid $main-color;
+            cursor: pointer;
+            transition: 0.4s all;
+            position: relative;
+            z-index: 3;
+            span {
+                transition: 0.4s all;
+                font-weight: 600;
+                color: $main-color;
+                z-index: 99;
+                position: relative;
+            }
+            &:hover {
+                span {
+                    color: $second-color;
+                }
+                &::after {
+                    right: 0;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: auto;
+                bottom: 0;
+                width: 0;
+                height: 100%;
+                background-color: $main-color;
+                transition: 0.4s all;
+                z-index: 2;
+            }
+            &.active {
+                &::after {
+                    right: 0;
+                    width: 100%;
+                    height: 100%;
+                }
+                span {
+                    color: $second-color;
+                }
+            }
+        }
+    }
+    &__item {
+        max-width: 500px;
+        border: 1px solid $main-color;
+        margin-bottom: 25px;
+        cursor: pointer;
+        &-img {
+            display: block;
+            z-index: 9999;
+            position: relative;
+            img {
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                transition: 0.4s all;
+            }
+        }
+        &-name {
+            padding: 15px;
+            border-top: none;
+            text-align: center;
+            color: $main-color;
+            position: relative;
+            span {
+                position: relative;
+                transition: 0.4s all;
+                z-index: 3;
+            }
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: auto;
+                width: 100%;
+                height: 0;
+                background-color: $main-color;
+                transition: 0.4s all;
+                z-index: 2;
+            }
+        }
+        &:hover {
+            .companies__item-img {
+                img {
+                    border-bottom: 1px solid $second-color;
+                    transform: scale(1.05);
+                }
+            }
+            .companies__item-name {
+                span {
+                    color: $second-color;
+                }
+                &::after {
+                    height: 100%;
+                    bottom: 0;
+                }
+            }
+        }
+    }
+}
